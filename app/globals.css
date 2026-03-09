@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root {
+  --primary: #CC5500;
+  --secondary: #1A2B3C;
+  --bg-main: #0F0F0F;
+  --bg-card: #1E1E1E;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0B0B0;
+  --border-subtle: #333333;
+  --accent-gold: #C6A43F;
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-bg-main: var(--bg-main);
+  --color-bg-card: var(--bg-card);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-subtle: var(--border-subtle);
+  --color-accent-gold: var(--accent-gold);
+}
+
+@layer base {
+  body {
+    @apply bg-bg-main text-text-primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-bold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    @apply leading-relaxed text-text-secondary;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1280px] mx-auto px-4 md:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .btn-primary {
+    @apply rounded-full px-8 py-4 bg-primary text-white transition-all duration-300 transform outline-none border-none cursor-pointer;
+    box-shadow: 0 4px 14px 0 rgba(204, 85, 0, 0.39);
+  }
+
+  .btn-primary:hover {
+    /* Using modern color opacity syntax for Tailwind v4 */
+    @apply bg-primary/90 scale-105;
+    box-shadow: 0 6px 20px rgba(204, 85, 0, 0.45);
+  }
+
+  .btn-primary:active {
+    @apply scale-95;
+  }
+
+  .btn-secondary {
+    @apply rounded-full px-8 py-4 border border-primary text-primary transition-all duration-300 transform outline-none cursor-pointer;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-primary text-white scale-105;
+  }
+
+  .btn-secondary:active {
+    @apply scale-95;
+  }
+
+  .card-base {
+    @apply bg-bg-card rounded-2xl p-6 border border-border-subtle transition-all duration-300 shadow-xl;
+  }
+
+  .card-base:hover {
+    @apply border-primary/50 -translate-y-2;
+  }
+}
+
+/* Custom Utilities */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-gold;
+}
+
+.bg-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
