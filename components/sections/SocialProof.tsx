@@ -90,8 +90,8 @@ export default function SocialProof() {
     });
 
     return (
-        <section id="results" className="section-padding bg-bg-main overflow-hidden">
-            <Container>
+        <section id="results" className="section-padding bg-bg-main overflow-hidden w-full relative">
+            <Container className="w-full">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-12 gap-6">
                     <div className="max-w-xl text-center md:text-left w-full md:w-auto">
                         <h2 className="text-4xl md:text-5xl mb-4">Real People. Real Results.</h2>

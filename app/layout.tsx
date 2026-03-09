@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={`${inter.variable} ${cormorantGaramond.variable} font-sans bg-bg-main text-text-primary antialiased relative`}>
+            <body className={`${inter.variable} ${cormorantGaramond.variable} font-sans bg-bg-main text-text-primary antialiased relative overflow-x-hidden w-full`}>
                 {children}
                 <FloatingChat />
             </body>
