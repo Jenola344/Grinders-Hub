@@ -89,26 +89,26 @@ function VideoCard({ video, poster }: VideoCardProps) {
 
             {/* Play Overlay */}
             {!isPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors z-10">
-                    <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-xl transform transition-transform group-hover:scale-110">
-                        <Play className="w-8 h-8 text-primary ml-1 fill-primary" />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/40 md:group-hover:bg-black/20 transition-colors z-10">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/90 flex items-center justify-center shadow-xl transform transition-transform md:group-hover:scale-110">
+                        <Play className="w-6 h-6 md:w-8 md:h-8 text-primary ml-1 fill-primary" />
                     </div>
                 </div>
             )}
 
-            {/* Video Controls / Info Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20">
+            {/* Video Controls / Info Overlay (visible when paused and on mobile, hides on play for desktop until hover) */}
+            <div className={`absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent transition-opacity duration-300 z-20 ${isPlaying ? 'opacity-0 md:group-hover:opacity-100' : 'opacity-100'}`}>
                 {/* Progress Bar */}
-                <div className="w-full h-1 bg-white/20 rounded-full mb-3 overflow-hidden">
+                <div className="w-full h-1 md:h-1.5 bg-white/20 rounded-full mb-2 md:mb-3 overflow-hidden">
                     <div
                         className="h-full bg-primary transition-all duration-100 ease-linear"
-                        style={{ width: `${(currentTime / duration) * 100}%` }}
+                        style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
                     />
                 </div>
 
-                <div className="flex justify-between items-center text-[10px] font-bold tracking-widest text-white/80 uppercase">
-                    <div className="flex items-center gap-2">
-                        {isPlaying ? <span className="w-2 h-2 bg-primary rounded-full animate-pulse" /> : null}
+                <div className="flex justify-between items-center text-[9px] md:text-[10px] font-bold tracking-widest text-white/80 uppercase">
+                    <div className="flex items-center gap-1.5 md:gap-2">
+                        {isPlaying ? <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full animate-pulse" /> : null}
                         {isPlaying ? 'PLAYING' : 'PAUSED'}
                     </div>
                     <div>
@@ -144,20 +144,20 @@ export default function Curriculum() {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border border-white/10 rounded-2xl overflow-hidden bg-bg-card">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-white/10 border border-white/10 rounded-2xl overflow-hidden w-full">
                     {tracks.map((track, i) => (
-                        <div key={track.title} className="flex flex-col border-b md:border-b-0 md:border-r border-white/10 last:border-0">
+                        <div key={track.title} className="flex flex-col bg-bg-card group/track">
                             {/* Text block */}
-                            <div className="p-8 md:p-10 flex-1 flex flex-col">
-                                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                    <span className="text-primary/50 text-sm font-mono">0{i + 1}</span>
+                            <div className="p-6 md:p-8 lg:p-10 flex-1 flex flex-col">
+                                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
+                                    <span className="text-primary/50 text-sm font-mono tracking-widest">0{i + 1}</span>
                                     {track.title}
                                 </h3>
-                                <p className="text-sm leading-relaxed text-text-secondary mb-6 flex-grow">
+                                <p className="text-sm md:text-base leading-relaxed text-text-secondary mb-6 md:mb-8 flex-grow">
                                     {track.description}
                                 </p>
-                                <div className="flex items-center text-xs font-bold tracking-widest text-primary gap-2 group cursor-pointer hover:gap-3 transition-all">
-                                    LEARN MORE <ChevronRight className="w-4 h-4" />
+                                <div className="flex items-center text-xs md:text-sm font-bold tracking-widest text-primary gap-2 cursor-pointer transition-all md:group-hover/track:gap-3 opacity-90 hover:opacity-100">
+                                    LEARN MORE <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
                             </div>
 

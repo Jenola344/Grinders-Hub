@@ -83,11 +83,11 @@ export default function Hero() {
                         />
                     </motion.div>
 
-                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-[1.05]">
+                    <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-4 sm:mb-6 leading-[1.05]">
                         THE GRINDERS <span className="text-primary">HUB</span>
                     </h2>
 
-                    <p className="text-lg md:text-xl text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-xl text-text-secondary mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
                         Learn skills that pay. Join a community that builds. <br className="hidden md:block" />
                         <span className="text-white">Empowering ambitious individuals to gain in demand digital skills.</span>
                     </p>
@@ -221,7 +221,7 @@ export default function Hero() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.97 }}
                             onClick={() => window.location.href = '/join'}
-                            className="relative flex items-center gap-3 px-14 py-5 rounded-full text-white text-xl font-bold tracking-wide"
+                            className="relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 sm:px-14 py-4 sm:py-5 rounded-full text-white text-lg sm:text-xl font-bold tracking-wide max-w-sm mx-auto sm:max-w-none"
                             style={{
                                 background: "linear-gradient(135deg, #CC5500 0%, #E06820 50%, #CC5500 100%)",
                                 boxShadow: "0 0 40px rgba(204, 85, 0, 0.55), 0 0 80px rgba(204, 85, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.2)",
